@@ -1,13 +1,13 @@
 # docker 실행 
-> docker run -it -p 8545:8545 -p 3000:3000  --volume=$(pwd):/unilogin/  --name unilogin -d node 
-> docker exec -it unilogin bash
-> cd unilogin
-> npm i -g n
-> n stable
-> npm install
+> docker run -it -p 8545:8545 -p 3000:3000  --volume=$(pwd):/unilogin/  --name unilogin -d node  <br/>
+> docker exec -it unilogin bash  <br/>
+> cd unilogin   <br/>
+> npm i -g n    <br/>
+> n stable      <br/>
+> npm install   <br/>
 
 # ganache 실행
-> ganache-cli --host 0.0.0.0       // 이게 localhost 보다 잘 연결됨
+> ganache-cli --host 0.0.0.0       // 이게 localhost 보다 잘 연결됨     <br/>
 
 
 
