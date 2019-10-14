@@ -1,3 +1,17 @@
+# docker 실행 
+> docker run -it -p 8545:8545 -p 3000:3000  --volume=$(pwd):/unilogin/  --name unilogin -d node 
+> docker exec -it unilogin bash
+> cd unilogin
+> npm i -g n
+> n stable
+> npm install
+
+# ganache 실행
+> ganache-cli --host 0.0.0.0       // 이게 localhost 보다 잘 연결됨
+
+
+
+
 Effortless Ethereum Login via EIP-1077 & ERC-1078
 ================= 
 

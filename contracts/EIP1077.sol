@@ -1,4 +1,4 @@
-pragma solidity ^0.4.20;
+pragma solidity ^0.4.23;
 
 import { ECRecovery } from "./ECRecovery.sol";
 
@@ -48,7 +48,7 @@ contract Identity {
     event Write();
     event Ping();
     
-    constructor(address _account, bytes32 _pubKey) public {
+    constructor(address _account, bytes32 _pubKey)  {
         account = _account;
         pubKey = _pubKey;
     }
