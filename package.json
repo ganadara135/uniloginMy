@@ -6,7 +6,7 @@
     "bitcore-lib": "^0.15.0",
     "ethereumjs-util": "^5.2.0",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react-dom": "^16.4.2",
     "react-scripts": "1.1.4",
     "web3": "^1.2.1",
     "web3-providers-ws": "^1.2.1"
