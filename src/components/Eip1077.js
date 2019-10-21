@@ -8,125 +8,185 @@ import EIP1077Payload from '../libs/EIP1077Payload';
 import ethUtils from 'ethereumjs-util';
 
 const ABI = [
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_account",
-				"type": "address"
-			},
-			{
-				"name": "_pubKey",
-				"type": "bytes32"
-			}
-		],
-		"name": "createIdentity",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_account",
-				"type": "address"
-			}
-		],
-		"name": "getIdentityForAccount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-
-
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_account",
-				"type": "address"
-			},
-			{
-				"name": "_operationType",
-				"type": "uint256"
-			},
-			{
-				"name": "_gas",
-				"type": "uint256"
-			},
-			{
-				"name": "_messageHash",
-				"type": "bytes32"
-			},
-			{
-				"name": "_signedHash",
-				"type": "bytes"
-			}
-		],
-		"name": "EIP1077Request",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"name": "_account",
-				"type": "address"
-			},
-			{
-				"name": "_pubKey",
-				"type": "bytes32"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
-		"inputs": [],
-		"name": "Read",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [],
-		"name": "Write",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [],
-		"name": "Ping",
-		"type": "event"
-	}
+    {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "_account",
+            "type": "address"
+          },
+          {
+            "name": "_pubKey",
+            "type": "bytes32"
+          },
+          {
+            "name": "_messageHash",
+            "type": "bytes32"
+          },
+          {
+            "name": "_signedHash",
+            "type": "bytes"
+          }
+        ],
+        "name": "verifySignature",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "pure",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "_account",
+            "type": "address"
+          },
+          {
+            "name": "_pubKey",
+            "type": "bytes32"
+          },
+          {
+            "name": "_messageHash",
+            "type": "bytes32"
+          },
+          {
+            "name": "_signedHash",
+            "type": "bytes"
+          }
+        ],
+        "name": "verifySignatureNoPrefix",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "pure",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "name": "_account",
+            "type": "address"
+          },
+          {
+            "name": "_pubKey",
+            "type": "bytes32"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "anonymous": false,
+        "inputs": [],
+        "name": "Read",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [],
+        "name": "Write",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [],
+        "name": "Ping",
+        "type": "event"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_account",
+            "type": "address"
+          },
+          {
+            "name": "_operationType",
+            "type": "uint256"
+          },
+          {
+            "name": "_gas",
+            "type": "uint256"
+          },
+          {
+            "name": "_messageHash",
+            "type": "bytes32"
+          },
+          {
+            "name": "_signedHash",
+            "type": "bytes"
+          }
+        ],
+        "name": "EIP1077Request",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_account",
+            "type": "address"
+          },
+          {
+            "name": "_pubKey",
+            "type": "bytes32"
+          }
+        ],
+        "name": "createIdentity",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "_account",
+            "type": "address"
+          }
+        ],
+        "name": "getIdentityForAccount",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      }
 ];
 
 //const web3 = new Web3(new Web3.providers.HttpProvider("https://localhost:8545"));
 const web3 = new Web3(new Web3.providers.WebsocketProvider("ws://localhost:8545"));
 // const CONTRACT_ADDRESS = "0x6adD67320A0D86F65B2f8e0bD24F2576f49fC5A4";       // 기존에 배포한 컨트랙트 주소 rinkeby 에 살아 있음
 //const CONTRACT_ADDRESS = "0xA40F3cE44deF9f3F53AF117Fe5305B3519bDE08b";
-const CONTRACT_ADDRESS = "0x2a5eFd692Ee2755FD3a65255f7089C6F53969593";
+const CONTRACT_ADDRESS = "0xf250AF8Df702ab76eBf67C0CB4028DE5a2ACf4fE";
 
 class Eip1077 extends Component {
 

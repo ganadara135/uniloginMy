@@ -1,15 +1,16 @@
 # docker 실행 
-> docker run -it -p 8545:8545 -p 3000:3000  --volume=$(pwd):/unilogin/  --name unilogin -d node  <br/>
-> docker exec -it unilogin bash  <br/>
-> cd unilogin   <br/>
-> npm i -g n    <br/>
-> n stable      <br/>
-> npm install   <br/>
+\> docker run -it -p 8545:8545 -p 3000:3000  --volume=$(pwd):/unilogin/  --name unilogin -d node  <br/>
+\> docker exec -it unilogin bash  <br/>
+\> cd unilogin   <br/>
+\> npm i -g n    <br/>
+\> n stable      <br/>
+\> npm install   <br/>
 
 # ganache 실행
-> ganache-cli --host 0.0.0.0       // 이게 localhost 보다 잘 연결됨     <br/>
-
-
+\> ganache-cli --host 0.0.0.0       // 이게 localhost 보다 잘 연결됨     <br/>
+터미널 하나 더 띄워서       <br/>
+\> truffle console --network development    // 위 가나시 서버에 붙는다. truffle-config.js  설정값 확인  <br>     
+\>> migrate --reset      <br>
 
 
 Effortless Ethereum Login via EIP-1077 & ERC-1078
